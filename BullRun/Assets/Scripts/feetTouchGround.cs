@@ -5,14 +5,13 @@ using UnityEngine;
 public class feetTouchGround : MonoBehaviour
 {
     public Player player;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             player.isGrounded = true;
             player.jumpCount = 0;
-            //player.animator.SetBool("isJumping", false);
+            player.animator.SetBool("isGrounded", true);
         }
     }
 

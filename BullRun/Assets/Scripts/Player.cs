@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public float gravityScale = 0;
     public float fallingGravityScale = 0;
     public bool isGrounded = false;
-
+    public Animator animator;
 
     int speed = 2;
 
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            //  animator.SetBool("isJumping", true);
+            animator.SetBool("isGrounded", false);
             jumpCount += 1;
             if (jumpCount == allowedJumps)
             {
