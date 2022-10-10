@@ -37,6 +37,9 @@ public class Player : MonoBehaviour
                 isGrounded = false;
             }
 
+
+        }
+
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
                 transform.position += Vector3.right * speed * Time.deltaTime;
@@ -47,8 +50,5 @@ public class Player : MonoBehaviour
                 transform.position += Vector3.left * speed * Time.deltaTime;
 
             }
-
-        }
-
     }
 }
