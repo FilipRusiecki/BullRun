@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Health : MonoBehaviour
 {
     public int health;
@@ -40,6 +41,10 @@ public class Health : MonoBehaviour
                 hearts[i].enabled = false;
             }
         }
+
+
+
+
     }
     public void depricateHealth()
     {

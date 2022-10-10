@@ -9,7 +9,7 @@ public class Score : MonoBehaviour
     private int score;
     private int temp;
     private TMP_Text scoreText;
-
+    public Health health;
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +21,16 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: " + score.ToString();
-        temp++;
-        if (temp >= 60)
+        if (health.health >= 0)
         {
-            temp = 0;
+            scoreText.text = "Score: " + score.ToString();
+            temp++;
+            if (temp >= 60)
+            {
+                temp = 0;
 
-            score += 10;
+                score += 10;
+            }
         }
     }
 }

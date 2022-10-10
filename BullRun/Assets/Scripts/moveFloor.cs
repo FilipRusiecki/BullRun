@@ -6,7 +6,7 @@ public class moveFloor : MonoBehaviour
 {
     public BoxCollider2D collider;
 
-    int speed = 10;
+    int speed = 7;
     float width;
     // Start is called before the first frame update
     void Start()

@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using TMPro;
 public class Player : MonoBehaviour
 {
 
     public Rigidbody2D rb;
+    public Health health;
+    public GameObject text;
     [Header("Player Jumping")]
     public float jumpForce = 0;
     public int jumpCount = 0;
@@ -21,24 +24,26 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        text.gameObject.active = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
+        if (health.health >= 0)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            animator.SetBool("isGrounded", false);
-            jumpCount += 1;
-            if (jumpCount == allowedJumps)
+            if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
             {
-                isGrounded = false;
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                animator.SetBool("isGrounded", false);
+                jumpCount += 1;
+                if (jumpCount == allowedJumps)
+                {
+                    isGrounded = false;
+                }
+
+
             }
-
-
-        }
 
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
@@ -50,6 +55,22 @@ public class Player : MonoBehaviour
                 transform.position += Vector3.left * speed * Time.deltaTime;
 
             }
+        }
+        else if (health.health < 0)
+        {
+            text.gameObject.active = true;
+
+        
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+               
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+         
+            
+        }
+
+            
     }
 
     public void pushback()
