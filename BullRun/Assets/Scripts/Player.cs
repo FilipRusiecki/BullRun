@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
     public Rigidbody2D rb;
     [Header("Player Jumping")]
     public float jumpForce = 0;
@@ -12,6 +13,9 @@ public class Player : MonoBehaviour
     public float gravityScale = 0;
     public float fallingGravityScale = 0;
     public bool isGrounded = false;
+
+
+    int speed = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -31,6 +36,16 @@ public class Player : MonoBehaviour
             {
                 isGrounded = false;
             }
+
+        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            transform.position += Vector3.left * speed * Time.deltaTime;
+
         }
 
     }
