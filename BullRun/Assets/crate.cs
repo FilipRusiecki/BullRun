@@ -7,7 +7,7 @@ public class crate : MonoBehaviour
     
     void Update()
     {
-        if(transform.position.x<-4)
+        if(transform.position.x<-5.5)
         {
             gameObject.transform.position = new Vector3(8.0f,transform.position.y,transform.position.z);
         }
