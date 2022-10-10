@@ -46,3 +46,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: background
+    uniqueID: 2777255451
+    locked: 0
+  - name: player
+    uniqueID: 2338449357
+    locked: 0
+  - name: BULL
+    uniqueID: 643764995
+    locked: 0
+  - name: cactus
+    uniqueID: 900925275
+    locked: 0
+  - name: crate
+    uniqueID: 3224781397
+    locked: 0
+  - name: GRASS
+    uniqueID: 4038819725
+    locked: 0
