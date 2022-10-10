@@ -18,5 +18,6 @@ public class Collision : MonoBehaviour
             Debug.Log("collidede with bull");
             Destroy(particle,2.0f);
         }
+
     }
 }

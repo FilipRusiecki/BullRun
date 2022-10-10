@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - bull
+  - cactus
+  - barrel
   layers:
   - Default
   - TransparentFX
@@ -13,11 +15,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Cactus
+  - Bull
+  - Player
+  - Floor
+  - Barrel
   - 
   - 
   - 
