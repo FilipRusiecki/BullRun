@@ -10,15 +10,21 @@ public class Collision : MonoBehaviour
     public GameObject m_particle;
     public Transform m_pos;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("bull"))
         {
             GameObject particle = Instantiate(m_particle, m_pos);
             Debug.Log("collidede with bull");
-            Destroy(particle,2.0f);
+            GetComponent<Health>().depricateHealth();
+            Destroy(particle, 2.0f);
         }
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
 
         if (collision.gameObject.CompareTag("cactus"))
         {

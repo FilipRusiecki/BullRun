@@ -41,4 +41,9 @@ public class Health : MonoBehaviour
             }
         }
     }
+    public void depricateHealth()
+    {
+        health--;
+        Debug.Log("takeAwayLife");
+    }
 }
