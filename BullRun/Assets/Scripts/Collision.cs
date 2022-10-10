@@ -19,5 +19,21 @@ public class Collision : MonoBehaviour
             Destroy(particle,2.0f);
         }
 
+
+        if (collision.gameObject.CompareTag("cactus"))
+        {
+
+            GetComponent<Player>().pushback();
+            Debug.Log("collidede with cactus");
+           
+        }
+
+        if (collision.gameObject.CompareTag("barrel"))
+        {
+            GetComponent<Player>().pushback();
+            Debug.Log("collidede with barrell");
+           
+        }
+
     }
 }

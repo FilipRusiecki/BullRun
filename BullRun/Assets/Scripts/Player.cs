@@ -51,4 +51,9 @@ public class Player : MonoBehaviour
 
             }
     }
+
+    public void pushback()
+    {
+        rb.AddForce(Vector2.left*jumpForce, ForceMode2D.Impulse);
+    }
 }
