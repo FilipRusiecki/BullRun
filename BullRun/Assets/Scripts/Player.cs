@@ -30,25 +30,25 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-          //  animator.SetBool("isJumping", true);
+            //  animator.SetBool("isJumping", true);
             jumpCount += 1;
             if (jumpCount == allowedJumps)
             {
                 isGrounded = false;
             }
 
-        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            transform.position += Vector3.right * speed * Time.deltaTime;
-        }
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            {
+                transform.position += Vector3.right * speed * Time.deltaTime;
+            }
 
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            {
+                transform.position += Vector3.left * speed * Time.deltaTime;
+
+            }
 
         }
 
     }
-
-
 }
