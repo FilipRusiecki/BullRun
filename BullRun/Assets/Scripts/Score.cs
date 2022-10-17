@@ -6,7 +6,7 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
-    private int score;
+    public int score;
     private int temp;
     private TMP_Text scoreText;
     public Health health;
