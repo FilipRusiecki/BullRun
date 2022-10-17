@@ -68,3 +68,6 @@ TagManager:
   - name: bird
     uniqueID: 2174079843
     locked: 0
+  - name: upgrade
+    uniqueID: 2464497357
+    locked: 0
