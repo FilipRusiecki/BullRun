@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
 
-    public bool allowDamage = true;
+
     // Update is called once per frame
     void Update()
     {
@@ -48,10 +48,7 @@ public class Health : MonoBehaviour
     }
     public void depricateHealth()
     {
-        if (allowDamage == true)
-        {
-            health--;
-            Debug.Log("takeAwayLife");
-        }
+        health--;
+        Debug.Log("takeAwayLife");
     }
 }
