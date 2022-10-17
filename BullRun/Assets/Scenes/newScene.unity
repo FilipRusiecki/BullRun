@@ -1239,6 +1239,8 @@ MonoBehaviour:
   m_Bull: {fileID: 4718851494997815074}
   m_particle: {fileID: 3702129091745554182, guid: 5079aef539243354ea091340419e30fe, type: 3}
   m_Bird: {fileID: 1464872345}
+  m_crate: {fileID: 1788829918}
+  m_cactus: {fileID: 773217584}
   m_pos: {fileID: 588418166}
 --- !u!1 &963359579
 GameObject:
