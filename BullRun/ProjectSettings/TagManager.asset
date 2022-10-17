@@ -9,6 +9,7 @@ TagManager:
   - cactus
   - barrel
   - Obstacle
+  - bird
   layers:
   - Default
   - TransparentFX
@@ -63,4 +64,7 @@ TagManager:
     locked: 0
   - name: GRASS
     uniqueID: 4038819725
+    locked: 0
+  - name: bird
+    uniqueID: 2174079843
     locked: 0
