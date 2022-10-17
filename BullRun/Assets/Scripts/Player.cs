@@ -88,6 +88,6 @@ public class Player : MonoBehaviour
 
     public void pushback()
     {
-        rb.AddForce(Vector2.left*3.0f, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.left*5.0f, ForceMode2D.Impulse);
     }
 }

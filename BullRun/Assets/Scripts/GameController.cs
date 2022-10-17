@@ -37,10 +37,10 @@ public class GameController : MonoBehaviour
 		
         if(score.score == 500 || score.score == 1000 || score.score == 1500 || score.score == 2000 || score.score == 2500 || score.score == 3000 || score.score == 3500 || score.score == 4000 || score.score == 4500 || score.score == 5000 || score.score == 5500 || score.score == 6000 || score.score == 6500 || score.score == 7000 || score.score == 7500 || score.score == 8000 || score.score == 8500 )
         {
-            Instantiate(doubleJumpPowerup, doubleJumpTrans.position, doubleJumpTrans.rotation);
+            doubleJumpPowerup.transform.position = new Vector3(pos.position.x, pos.position.y, pos.position.z);
         }
 
-        if(jump.spawn == false)
+        if (jump.spawn == false)
         {
             doubleJumpPowerup.transform.position = new Vector3(offScreenPos.position.x, offScreenPos.position.y, offScreenPos.position.z);
         }
