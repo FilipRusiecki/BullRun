@@ -10,6 +10,7 @@ TagManager:
   - barrel
   - Obstacle
   - bird
+  - powerup
   layers:
   - Default
   - TransparentFX
@@ -67,4 +68,7 @@ TagManager:
     locked: 0
   - name: bird
     uniqueID: 2174079843
+    locked: 0
+  - name: powerup
+    uniqueID: 839510829
     locked: 0

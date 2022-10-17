@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public bool isGrounded = false;
     public Animator animator;
 
+    public bool doubleJumpActive = false;
+
     int speed = 2;
 
     // Start is called before the first frame update
@@ -70,11 +72,22 @@ public class Player : MonoBehaviour
             
         }
 
+
+        //////////Double Jump Active stuff///////////////
+        if (doubleJumpActive == true)
+        {
+            allowedJumps = 2;
+        }
+        else if (doubleJumpActive == false)
+        {
+            allowedJumps = 1;
+        }
+
             
     }
 
     public void pushback()
     {
-        rb.AddForce(Vector2.left*jumpForce, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.left*3.0f, ForceMode2D.Impulse);
     }
 }
