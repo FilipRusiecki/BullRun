@@ -9,6 +9,8 @@ public class Collision : MonoBehaviour
     public GameObject m_Bull;
     public GameObject m_particle;
     public GameObject m_Bird;
+    public GameObject m_crate;
+    public GameObject m_cactus;
     public Transform m_pos;
 
 
@@ -31,6 +33,7 @@ public class Collision : MonoBehaviour
         {
 
             GetComponent<Player>().pushback();
+            m_cactus.GetComponent<cactus>().respawn();
             Debug.Log("collidede with cactus");
            
 
@@ -39,6 +42,7 @@ public class Collision : MonoBehaviour
         {
 
             GetComponent<Player>().pushback();
+            m_Bird.GetComponent<bird>().respawn();
             Debug.Log("collidede with bird");
 
         }
@@ -46,8 +50,8 @@ public class Collision : MonoBehaviour
         if (collision.gameObject.CompareTag("barrel"))
         {
             GetComponent<Player>().pushback();
-            Debug.Log("collidede with barrell");
-           
+            m_crate.GetComponent<crate>().respawn();
+            Debug.Log("collided with barrell");   
         }
 
     }

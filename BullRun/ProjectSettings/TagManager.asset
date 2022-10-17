@@ -71,4 +71,6 @@ TagManager:
     locked: 0
   - name: powerup
     uniqueID: 839510829
+  - name: upgrade
+    uniqueID: 2464497357
     locked: 0

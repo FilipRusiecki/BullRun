@@ -2,6 +2,7 @@ BullRun*/[Ll]ibrary/
 BullRun*/[Tt]emp/
 BullRun*/[Oo]bj/
 BullRun*/[Ll]ogs/
+BullRun*/[Uu]ser[Ss]ettings/
 #BullRun*/[Pp]roject[Ss]ettings/
 #BullRun*/[Pp]ackages/
 BullRun*/Assets/AssetStoreTools*
@@ -35,3 +36,4 @@ BullRun*/sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
