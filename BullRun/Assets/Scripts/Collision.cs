@@ -8,6 +8,7 @@ public class Collision : MonoBehaviour
   
     public GameObject m_Bull;
     public GameObject m_particle;
+    public GameObject m_Bird;
     public Transform m_pos;
 
 
@@ -32,6 +33,14 @@ public class Collision : MonoBehaviour
             GetComponent<Player>().pushback();
             Debug.Log("collidede with cactus");
            
+
+        }
+        if (collision.gameObject.CompareTag("bird"))
+        {
+
+            GetComponent<Player>().pushback();
+            Debug.Log("collidede with bird");
+
         }
 
         if (collision.gameObject.CompareTag("barrel"))
