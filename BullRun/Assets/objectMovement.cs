@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class objectMovement : MonoBehaviour
 {
-    int speed = 2;
+    public int speed = 2;
 
     public Rigidbody2D rb;
 
@@ -17,6 +17,5 @@ public class objectMovement : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
-
     }
 }

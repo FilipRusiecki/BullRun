@@ -11,6 +11,8 @@ public class Collision : MonoBehaviour
     public GameObject m_Bird;
     public GameObject m_crate;
     public GameObject m_cactus;
+    public GameObject m_shrapnel;
+
     public Transform m_pos;
 
 
@@ -27,7 +29,17 @@ public class Collision : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Bomb"))
+        {
+            Debug.Log("collided with Shrapnel");
+            GetComponent<Health>().depricateHealth();
+        }
+
+        if (collision.gameObject.CompareTag("Shrapnel"))
+        {
+            Debug.Log("collided with Shrapnel");
+            GetComponent<Health>().depricateHealth(2);
+        }
 
         if (collision.gameObject.CompareTag("cactus"))
         {

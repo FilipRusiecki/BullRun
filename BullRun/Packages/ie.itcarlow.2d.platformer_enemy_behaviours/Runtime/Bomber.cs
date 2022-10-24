@@ -61,6 +61,24 @@ public class Bomber : MonoBehaviour
             }
             
         }
+        if (transform.position.x < -10.0f)
+        {
+            gameObject.transform.position = new Vector3(15.0f, transform.position.y, transform.position.z);
+            respawn();
+        }
+    }
+
+    public void respawn()
+    {
+        gameObject.transform.position = new Vector3(15.0f, transform.position.y, transform.position.z);
+        bomb = Instantiate(bombPassed, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - offset,0), Quaternion.identity, transform);
+        if (!bomb.GetComponent<Bomb>().enabled)
+        {
+            bomb.GetComponent<Bomb>().enabled = true;
+        }
+        bomb.GetComponent<Bomb>().dropped = false;
+        armed = true;
+
     }
 
     public void Damage(float damage)

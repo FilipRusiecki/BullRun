@@ -10,7 +10,10 @@ public class Bomb : MonoBehaviour
     // Bomber's GameObject
     private GameObject bomber;
     // Temporary Shrapnel GameObject
+    private GameObject shrapnelRight;
+    private GameObject shrapnelLeft;
     private GameObject shrapnel;
+
     // player gameobject
     private GameObject player;
     // Bomb Health
@@ -22,7 +25,10 @@ public class Bomb : MonoBehaviour
     // shrapnel object
     public GameObject ShrapnelPassed;
 
-    public float offset = 0.0f;
+    public bool bothways = false;
+    public float bombOffset = 0.0f;
+    public float shrapnelOffset = 0.4f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,17 +57,37 @@ public class Bomb : MonoBehaviour
             rb.gravityScale = 0;
             for (int i = 0; i < 3; i++)
             {
-                shrapnel = Instantiate(ShrapnelPassed, new Vector3(rb.position.x, rb.position.y + i, 0), Quaternion.identity);
-                if (rb.position.x < player.GetComponent<Rigidbody2D>().position.x)
+                if (bothways)
                 {
-                    shrapnel.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponentInParent<Bomber>().speed, 0.0f);
-                    shrapnel.GetComponent<Transform>().localScale = new Vector3(shrapnel.GetComponent<Transform>().localScale.x * -1, shrapnel.GetComponent<Transform>().localScale.y, shrapnel.GetComponent<Transform>().localScale.z);
+                    if (i != 0)
+                    {
+                        shrapnelRight = Instantiate(ShrapnelPassed, new Vector3(rb.position.x, rb.position.y + shrapnelOffset, 0), Quaternion.identity);
+                        shrapnelLeft = Instantiate(ShrapnelPassed, new Vector3(rb.position.x, rb.position.y + shrapnelOffset, 0), Quaternion.identity);
+                        shrapnelOffset += shrapnelOffset;
+                    }
+                    else
+                    {
+                        shrapnelRight = Instantiate(ShrapnelPassed, new Vector3(rb.position.x, rb.position.y, 0), Quaternion.identity);
+                        shrapnelLeft = Instantiate(ShrapnelPassed, new Vector3(rb.position.x, rb.position.y, 0), Quaternion.identity);
+                    }
+                    shrapnelRight.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponentInParent<Bomber>().speed, 0.0f);
+                    shrapnelLeft.GetComponent<Rigidbody2D>().velocity = new Vector2(-this.GetComponentInParent<Bomber>().speed, 0.0f);
                 }
-                else if (rb.position.x > player.GetComponent<Rigidbody2D>().position.x)
+                else
                 {
-                    shrapnel.GetComponent<Rigidbody2D>().velocity = new Vector2(-this.GetComponentInParent<Bomber>().speed, 0.0f);
+                    shrapnel = Instantiate(ShrapnelPassed, new Vector3(rb.position.x, rb.position.y + i, 0), Quaternion.identity);
+                    if (rb.position.x < player.GetComponent<Rigidbody2D>().position.x)
+                    {
+                        shrapnel.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponentInParent<Bomber>().speed, 0.0f);
+                        shrapnel.GetComponent<Transform>().localScale = new Vector3(shrapnel.GetComponent<Transform>().localScale.x * -1, shrapnel.GetComponent<Transform>().localScale.y, shrapnel.GetComponent<Transform>().localScale.z);
+                    }
+                    else if (rb.position.x > player.GetComponent<Rigidbody2D>().position.x)
+                    {
+                        shrapnel.GetComponent<Rigidbody2D>().velocity = new Vector2(-this.GetComponentInParent<Bomber>().speed, 0.0f);
+                    }
                 }
             }
+            shrapnelOffset = 0.40f;
             Destroy(this.gameObject);
         }
         else

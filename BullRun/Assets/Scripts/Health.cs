@@ -13,6 +13,9 @@ public class Health : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
 
+    [SerializeField]
+    private float invincibleSeconds = 2.0f;
+
     public bool allowDamage = true;
     // Update is called once per frame
     void Update()
@@ -41,17 +44,31 @@ public class Health : MonoBehaviour
                 hearts[i].enabled = false;
             }
         }
-
-
-
-
     }
     public void depricateHealth()
     {
-        if (allowDamage == true)
-        {
-            health--;
-            Debug.Log("takeAwayLife");
-        }
+        if (!allowDamage) return;
+        
+        health--;
+        Debug.Log("takeAwayLife");
+
+        StartCoroutine(Invincible());
+    }
+
+    public void depricateHealth(int minusHealth)
+    {
+        if (!allowDamage) return;
+
+        health -= minusHealth;
+        Debug.Log("takeAwayLife");
+
+        StartCoroutine(Invincible());
+    }
+
+    private IEnumerator Invincible()
+    {
+        allowDamage = false;
+        yield return new WaitForSeconds(invincibleSeconds);
+        allowDamage = true;
     }
 }
