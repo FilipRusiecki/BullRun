@@ -11,6 +11,7 @@ public class Collision : MonoBehaviour
     public GameObject m_Bird;
     public GameObject m_crate;
     public GameObject m_cactus;
+    public GameObject m_shrapnel;
     public Transform m_pos;
 
 
@@ -23,11 +24,20 @@ public class Collision : MonoBehaviour
             GetComponent<Health>().depricateHealth();
             Destroy(particle, 2.0f);
         }
+       
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Shrapnel"))
+        {
+
+            GetComponent<Player>().pushback();
+            GetComponent<Health>().depricateHealth();
+            Debug.Log("collidede with Shrapnel");
+
+
+        }
 
         if (collision.gameObject.CompareTag("cactus"))
         {
@@ -38,6 +48,8 @@ public class Collision : MonoBehaviour
            
 
         }
+
+       
         if (collision.gameObject.CompareTag("bird"))
         {
 
