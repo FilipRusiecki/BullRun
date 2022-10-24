@@ -52,15 +52,16 @@ public class Bomb : MonoBehaviour
                 shrapnel = Instantiate(ShrapnelPassed, new Vector3(rb.position.x, rb.position.y + i, 0), Quaternion.identity);
                 if (rb.position.x < player.GetComponent<Rigidbody2D>().position.x)
                 {
-                    shrapnel.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponentInParent<Bomber>().speed, 0.0f);
+                    shrapnel.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(3.0f,-3.0f), 0.0f);
                     shrapnel.GetComponent<Transform>().localScale = new Vector3(shrapnel.GetComponent<Transform>().localScale.x * -1, shrapnel.GetComponent<Transform>().localScale.y, shrapnel.GetComponent<Transform>().localScale.z);
                 }
                 else if (rb.position.x > player.GetComponent<Rigidbody2D>().position.x)
                 {
-                    shrapnel.GetComponent<Rigidbody2D>().velocity = new Vector2(-this.GetComponentInParent<Bomber>().speed, 0.0f);
+                    shrapnel.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(1.0f, -3.0f), 0.0f);
                 }
+                Destroy(shrapnel.gameObject, 1.5f);
             }
-            Destroy(this.gameObject);
+          
         }
         else
         {
@@ -72,6 +73,7 @@ public class Bomb : MonoBehaviour
             }
 
         }
+        Destroy(shrapnel.gameObject, 1.5f);
     }
 
     public void Damage(float damage)

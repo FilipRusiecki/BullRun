@@ -31,11 +31,12 @@ public class Collision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Shrapnel"))
         {
-
+           
+           
             GetComponent<Player>().pushback();
             GetComponent<Health>().depricateHealth();
             Debug.Log("collidede with Shrapnel");
-
+            Destroy(m_shrapnel.gameObject, 0.5f);
 
         }
 
